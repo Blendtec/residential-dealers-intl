@@ -1,0 +1,36 @@
+<div class="grid--full text-max-width">
+  <div class="registration-form form-vertical">
+    <form novalidate #f="ngForm" class="animate-floating-labels">
+      <div class="grid">
+        <div class="grid__item">
+          <div class="grid__item large--one-half push--large--one-quarter">
+            <select class="input-full" name="country" [(ngModel)]="country">
+              <option value="default">Choose Country</option>
+              <option *ngFor="let country of countries | async | orderBy: ['name']" [value]="country.code">
+                {{ country.name }}
+              </option>
+            </select>
+          </div>
+        </div>
+        <div class="grid__item">
+          <div class="grid__item large--one-half push--large--one-quarter">
+            <div *ngIf="(dealers | async | filterBy: ['country_code']: country)?.length === 0 && country !== 'default'">
+              <p class="no-dealer-results">
+                There is not a retail distributor for this country. If you are interested in purchasing retail products to use in your home, please email <a href="mailto:intsupport@blendtec.com">intsupport@blendtec.com</a>
+                or <a href="/pages/contact-us">Contact Us</a>.
+              </p>
+            </div>
+            <div *ngFor="let dealer of dealers | async | filterBy: ['country_code']: f.value.country">
+              <h3 *ngIf="dealer.name">{{ dealer.name }}</h3>
+              <p *ngIf="dealer.phone">Phone Number: {{dealer.phone}}</p>
+              <p *ngIf="dealer.email">Email: {{dealer.email}}</p>
+              <p *ngIf="dealer.street_address">Street Address: {{dealer.street_address}}</p>
+              <p><a target="_blank" href="http://{{dealer.website}}">{{dealer.website}}</a></p>
+              <hr/>
+            </div>
+          </div>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>
