@@ -60,7 +60,7 @@ describe('DealerService', () => {
   it('should get residential dealers', (done) => {
     service.getAll$()
       .subscribe(res => {
-        expect(res).toEqual(dealers.splice(0,1));
+        expect(res).toEqual(dealers.splice(0, 1));
         done();
       });
 
