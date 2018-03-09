@@ -16,6 +16,6 @@ export class DealerService {
 
   public getAll$(): Observable<IDealer[]> {
     return this.http.get<IDealer[]>(`${this.config.s3}/${this._resource}`)
-      .map(dealers => dealers.filter(dealer => dealer.type === '1'));
+      .map(dealers => dealers.filter(dealer => dealer.type === '0'));
   }
 }

@@ -14,7 +14,7 @@ describe('DealerService', () => {
     {
       id: '56f0175f-0058-46c3-97d7-40eb42cbcf71',
       country_code: 'RS',
-      type: '1',
+      type: '0',
       name: 'SINGLE COFFEE & TEA DOO',
       native_name: '',
       phone: '3.81607E+11',
@@ -28,7 +28,7 @@ describe('DealerService', () => {
     {
       id: '56f0175f-16e8-40c6-8c71-40eb42cbcf71',
       country_code: 'HR',
-      type: '0',
+      type: '1',
       name: 'Bio kuća d.o.o',
       native_name: '',
       phone: '00385 01 6399070',
